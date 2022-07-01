@@ -2,8 +2,23 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="sphere" class="com.example.boom.Sphere">
+    <bean id="sphere" class="com.example.boom.Sphere" parent="parent" >
         <constructor-arg type="java.lang.String" value="Boomer" />
         <property name="radius" value="20" />
+        <property name="names">
+        <list merge="true">
+            <value>boi</value>
+        </list>
+        </property>
     </bean>
+    <bean id="parent" abstract="true" class="com.example.boom.Sphere">
+        <property name="names">
+            <list>
+                <value>ok</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="com.example.boom.MyBeanPostProcessor"/>
+    <bean class="com.example.boom.MyBeanFactoryPostProcessor" />
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
 </beans>
