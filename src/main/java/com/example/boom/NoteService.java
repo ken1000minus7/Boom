@@ -31,7 +31,7 @@ public class NoteService {
         noteRepository.save(note);
     }
 
-    public void updateNote(int id,Note note){
+    public void updateNote(Note note){
         noteRepository.save(note);
     }
 

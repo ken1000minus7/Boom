@@ -14,18 +14,28 @@ public class NoteController {
         this.noteService = noteService;
     }
 
-    @RequestMapping(value = "/notes")
+    @GetMapping( "/notes")
     public List<Note> getAllNotes(){
         return noteService.getAllNotes();
     }
 
-    @RequestMapping(value = "/notes/{id}")
+    @GetMapping("/notes/{id}")
     public Note getNote(@PathVariable int id){
         return noteService.getNote(id);
     }
 
-    @RequestMapping(value = "/notes",method = RequestMethod.POST)
+    @PostMapping( "/notes")
     public void addNote(@RequestBody Note note){
         noteService.addNote(note);
+    }
+
+    @PutMapping("/notes")
+    public void updateNote(@RequestBody Note note){
+        noteService.updateNote(note);
+    }
+
+    @DeleteMapping("/notes/{id]")
+    public void deleteNote(@PathVariable int id){
+        noteService.deleteNote(id);
     }
 }

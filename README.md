@@ -1,2 +1,2 @@
 # Boom
-Spring boot application that does nothing (yet)
+Spring boot application that does nothing
